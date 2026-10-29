@@ -1,5 +1,9 @@
 # vmnet-poc
 
+[![docs-deploy](https://github.com/Amrtarik7/Mkdoctest/actions/workflows/docs-deploy.yml/badge.svg)](https://github.com/Amrtarik7/Mkdoctest/actions/workflows/docs-deploy.yml)
+
+Documentatie: https://amrtarik7.github.io/Mkdoctest/
+
 Korte PoC module voor stap 1 van de spike: een deploybare Azure VNet + Subnet + Linux VM.
 
 ## Snel starten

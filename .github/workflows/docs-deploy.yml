@@ -54,6 +54,35 @@ jobs:
       - name: Build MkDocs site
         run: python -m mkdocs build --strict
 
+      - name: Check GitHub Pages configuration
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              const { data } = await github.rest.repos.getPages({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+              });
+
+              const buildType = data.build_type || data?.build?.type;
+              if (buildType && buildType !== 'workflow') {
+                core.setFailed(
+                  `GitHub Pages source is '${buildType}'. Set it to 'GitHub Actions' in Settings > Pages.`
+                );
+                return;
+              }
+
+              core.info('GitHub Pages is enabled and compatible with Actions deployment.');
+            } catch (error) {
+              if (error.status === 404) {
+                core.setFailed(
+                  "GitHub Pages is not enabled for this repository. Enable it in Settings > Pages and choose 'GitHub Actions' as source."
+                );
+                return;
+              }
+              throw error;
+            }
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
