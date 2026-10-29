@@ -1,0 +1,15 @@
+site_name: CNC Terraform Catalog PoC
+site_description: Eerste PoC voor centrale Terraform module documentatie
+repo_name: vmnet-poc
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - include-markdown
+
+nav:
+  - Home: index.md
+  - Modules:
+      - vmnet-poc: modules/vmnet-poc.md
