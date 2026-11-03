@@ -18,16 +18,6 @@ Kleine testmodule voor een losse Azure Resource Group.
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
 
-## Modules
-
-No modules.
-
-## Resources
-
-| Name | Type |
-|------|------|
-| [azurerm_resource_group.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
