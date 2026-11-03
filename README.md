@@ -31,7 +31,7 @@ Korte PoC module voor stap 1 van de spike: een deploybare Azure VNet + Subnet + 
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.81.0 |
 
 ## Inputs
 
