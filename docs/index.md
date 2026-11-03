@@ -7,5 +7,5 @@ Welkom bij de lokale PoC voor centrale Terraform module-documentatie.
 - Centrale site tonen met MkDocs.
 
 ## Deze PoC bevat
-- 1 module: vmnet-poc
+- 2 modules: vmnet-poc en rg-poc
 - gegenereerde module-documentatie in de README van de module

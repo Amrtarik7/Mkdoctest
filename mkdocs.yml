@@ -13,3 +13,4 @@ nav:
   - Home: index.md
   - Modules:
       - vmnet-poc: modules/vmnet-poc.md
+  - rg-poc: modules/rg-poc.md

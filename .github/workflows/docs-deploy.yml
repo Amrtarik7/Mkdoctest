@@ -8,7 +8,7 @@ on:
     paths:
       - '**/*.tf'
       - '.terraform-docs.yml'
-      - 'README.md'
+      - '**/README.md'
       - 'docs/**'
       - 'mkdocs.yml'
       - 'requirements-docs.txt'
@@ -48,6 +48,13 @@ jobs:
         uses: terraform-docs/gh-actions@v1.4.1
         with:
           working-dir: .
+          output-file: README.md
+          output-method: inject
+
+      - name: Generate terraform-docs (rg-poc)
+        uses: terraform-docs/gh-actions@v1.4.1
+        with:
+          working-dir: modules/rg-poc
           output-file: README.md
           output-method: inject
 
