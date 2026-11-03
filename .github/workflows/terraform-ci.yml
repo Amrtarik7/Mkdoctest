@@ -1,0 +1,52 @@
+name: terraform-ci
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '**/*.tf'
+      - '.tflint.hcl'
+      - '.github/workflows/terraform-ci.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.tf'
+      - '.tflint.hcl'
+      - '.github/workflows/terraform-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init (no backend)
+        run: terraform init -backend=false
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: Run TFLint
+        run: |
+          tflint --init
+          tflint --format compact
+
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-action@v1.0.3
+        with:
+          working_directory: .
